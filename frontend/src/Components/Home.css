@@ -1,0 +1,28 @@
+/* body{
+    background-image: url('./images/note1.webp');
+    background-repeat: no-repeat;
+    background-size: cover;
+
+} */
+
+/* body {
+  height: 99vh;
+  background-image: ;
+
+} */
+
+.home-container{
+  height: 100vh;
+  background-image:url("./images/note1.webp") ;
+  background-size: cover;
+  background-position: center;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+}
+.home-container h2{
+  font-size: 2.5em;
+  font: bold;
+}

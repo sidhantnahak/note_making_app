@@ -1,0 +1,123 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+
+}
+link:hover{
+  cursor: pointer;
+}
+.notesitem{
+  border: 3px solid black;
+  padding: 1.2em;
+  margin:0.4em 0.8em;
+  border-radius: 10px;
+  
+}
+.description{
+  margin: 0.5em 0;
+}
+.buttons{
+  padding-top: 0.5em;
+}
+.buttons i{
+  margin: 0 7px;
+  font-size: 1.2em;
+}
+.buttons i{
+  cursor: pointer;
+}
+
+
+
+/* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 200px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+  background-color: #fefefe;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 30%;
+  height: 55%;
+}
+
+/* The Close Button */
+.close {
+  color: #aaaaaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.modal_detail {
+  margin-top: 10px;
+  box-sizing: border-box;
+}
+
+#etitle{
+  margin: 10px 0 5px 0;
+  width: 100%;
+  height: 30px;
+  padding: 5px 4px;
+  border: 1px solid black;
+}
+#edescription{
+  margin: 5px 0 0 0;
+  width: 100%;
+  height: 80px;
+  padding: 5px 4px;
+  border: 1px solid black;
+
+}
+.modal-content button{
+  border: none;
+  margin: 15px 15px 0 0;
+  padding: 8px;
+  width: 70px;
+  background-color: rgb(26, 164, 239);
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+@media (max-width:900px){
+  .modal-content{
+    width: 50%;
+  }
+}
+
+@media (max-width:700px){
+  .modal-content{
+    width: 60%;
+  }
+}
+@media (max-width:500px){
+  .notesitem{
+    width: 70%;
+  }
+}
+@media (max-width:400px){
+  .modal-content{
+    width: 70%;
+  }
+}
