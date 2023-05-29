@@ -28,13 +28,13 @@ import {
 import axios from 'axios'
 
 
-// axios.create({
+axios.create({
     //     // baseURL: process.env.BASE_URL,
     // baseURL: 'http://localhost:4000',
 
-    // baseURL: "https://note-making-app.onrender.com",
-    // withCredentials: true
-// })
+    baseURL: "https://note-making-app.onrender.com",
+    withCredentials: true
+})
 
 
 
