@@ -1,5 +1,6 @@
 const connectDatabasae = require('./db');
 const app = require('./app')
+const PORT=process.env.PORT||6000
 
 
 //unhandled uncatch exception
@@ -13,8 +14,8 @@ process.on("uncaughtException", (err) => {
 connectDatabasae();
 
 
-const server = app.listen(process.env.PORT_KEY ||6000, () => {
-    console.log(`the server is running at http://localhost:${process.env.PORT_KEY ||6000}`)
+const server = app.listen(PORT, () => {
+    console.log(`the server is running at http://localhost:${PORT}`)
 })
 
 //unhandled promise Rejection
