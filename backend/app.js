@@ -16,4 +16,11 @@ app.use(bodyparser.urlencoded({extended:true}))
 app.use('/api/v1',user)
 app.use('/api/v1',notes)
 
+app.use('/',(req,res)=>{
+    res.send({
+        message:"Hello sidhant",
+        sucess:true
+    })
+})
+
 module.exports = app
