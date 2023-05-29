@@ -42,11 +42,12 @@ exports.userLogin = async (req, res) => {
     return res.status(400).json({ message: "enter valid email and password", sucess: false })
   }
   try {
-
+console.log("here1")
     let user = await User.findOne({ email }).select("+password")
     if (!user) {
       return res.status(400).json({ message: "user not found", sucess: false })
     }
+    console.log("here2")
 
     const comparePassword = await bcryptjs.compare(password, user.password);
 

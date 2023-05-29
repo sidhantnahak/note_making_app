@@ -29,7 +29,9 @@ import axios from 'axios'
 
 
 axios.create({
-    baseURL: process.env.BASE_URL,
+    // baseURL: process.env.BASE_URL,
+    baseURL:  "https://note-making-app.onrender.com",
+   
     // baseURL: 'http://localhost:4000',
     withCredentials:true
 })
