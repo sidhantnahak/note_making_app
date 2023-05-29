@@ -11,6 +11,9 @@ app.use(cors())
 app.use(cookieparser())
 app.use(bodyparser.urlencoded({extended:true}))
 
+// app.use("uploads",express.static("./uploads"))
+// app.use("/files",express.static,("./public/files"))
+
 
 
 app.use('/api/v1',user)

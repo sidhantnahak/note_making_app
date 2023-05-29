@@ -29,7 +29,8 @@ import axios from 'axios'
 
 
 axios.create({
-    baseURL:'http://localhost:4000',
+    baseURL: process.env.BASE_URL,
+    // baseURL: 'http://localhost:4000',
     withCredentials:true
 })
 
