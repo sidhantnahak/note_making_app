@@ -5,13 +5,13 @@ import NotesItem from './NotesItem'
 import { useEffect, useState } from 'react'
 import Loder from './Loder'
 import { addnote, getAllnotes } from '../UserAction/UserAction'
-import { useNavigate } from 'react-router-dom'
+// import { useNavigate } from 'react-router-dom'
 // import { allnotes_fail } from '../Constants/Constants'
 import { Fragment } from 'react'
 
 const Notesapp = () => {
 
-const navigate=useNavigate()
+// const navigate=useNavigate()
   const dispatch = useDispatch()
 
   const [data, setData] = useState({ title: "", description: "" })

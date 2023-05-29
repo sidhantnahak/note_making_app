@@ -29,10 +29,10 @@ import axios from 'axios'
 
 
 axios.create({
-    // baseURL: process.env.BASE_URL,
-    baseURL:  "https://note-making-app.onrender.com",
+//     // baseURL: process.env.BASE_URL,
+// baseURL:  "https://note-making-app.onrender.com",
    
-    // baseURL: 'http://localhost:4000',
+    baseURL: 'http://localhost:4000',
     withCredentials:true
 })
 
@@ -95,12 +95,14 @@ export const getUser=()=>async(dispatch)=>{
         dispatch({ type: getuser_request });
         
         const { data } = await axios.post('/api/v1/me')
+
         dispatch({ type: getuser_sucess,payload:data.user});
 
     } catch (error) {
         dispatch({ type: getuser_fail,payload:error.response.data.message });
         
     }
+
 }
 
 export const getAllnotes=()=>async(dispatch)=>{

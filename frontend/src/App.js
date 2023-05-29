@@ -4,7 +4,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Register from './Components/Register';
 import Home from './Components/Home';
 import './App.css'
-import {  useSelector,useDispatch } from 'react-redux';
+import {  useSelector} from 'react-redux';
 import { getAllnotes, getUser } from './UserAction/UserAction';
 import { useEffect } from 'react';
 import store from './Store';
@@ -16,7 +16,7 @@ import Profile from './Components/Profile';
 
 function App() {
   // const dispatch = useDispatch()
-  const { isAuthenticated, user, error, loading } = useSelector(state => state.user)
+  const { user} = useSelector(state => state.user)
 
 
   useEffect(() => {
@@ -47,6 +47,7 @@ function App() {
             <Route exact path='/notes' element={<Note />} />
             <Route exact path='/notes/update/:id' element={<Note />} />
             <Route exact path="/contact" element={<Contact />} />
+            <Route exact path="/feedback" />
 
 
           </Route>

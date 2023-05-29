@@ -21,7 +21,7 @@ const NotesItem = (props) => {
 
   var modal = document.getElementById("myModal");
 
-  var span = document.getElementsByClassName("close")[0];
+  // var span = document.getElementsByClassName("close")[0];
 
 
 

@@ -51,7 +51,7 @@ const Navbar = () => {
       <header>
         <div className="navbar">
 
-          <div className="logo"><Link to="#">Coder sidhant</Link></div>
+          <div className="logo"><Link to="/">Coder sidhant</Link></div>
           <ul>
             <li><Link to="/">Home</Link></li>
             <li><Link to="/about">Profile</Link></li>
