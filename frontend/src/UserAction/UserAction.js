@@ -62,7 +62,7 @@ export const login = (email, password) => async (dispatch) => {
         dispatch({ type: login_request });
         // const config = { headers: {"Content-Type": "application/json"}};
 
-        const { data } = await axios.post('/api/v1/login',
+        const { data } = await axios.post('https://note-making-app.onrender.com/api/v1/login',
             { email, password }
         );
 
@@ -80,7 +80,7 @@ export const Logout = () => async (dispatch) => {
     try {
         dispatch({ type: logout_request });
 
-        const { data } = await axios.get('/api/v1/logout')
+        const { data } = await axios.get('https://note-making-app.onrender.com/api/v1/logout')
         dispatch({ type: logout_sucess, payload: data.message });
 
     } catch (error) {
@@ -94,7 +94,7 @@ export const getUser = () => async (dispatch) => {
     try {
         dispatch({ type: getuser_request });
 
-        const { data } = await axios.post('/api/v1/me')
+        const { data } = await axios.post('https://note-making-app.onrender.com/api/v1/me')
 
         dispatch({ type: getuser_sucess, payload: data.user });
 
@@ -109,7 +109,7 @@ export const getAllnotes = () => async (dispatch) => {
     try {
         dispatch({ type: allnotes_request });
 
-        const { data } = await axios.get('/api/v1/fetchallnotes')
+        const { data } = await axios.get('https://note-making-app.onrender.com/api/v1/me/api/v1/fetchallnotes')
         dispatch({ type: allnotes_sucess, payload: data.notes });
 
     } catch (error) {
