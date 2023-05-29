@@ -41,6 +41,9 @@ exports.userLogin = async (req, res) => {
   if (!email || !password) {
     return res.status(400).json({ message: "enter valid email and password", sucess: false })
   }
+  if (email=="" || password=="") {
+    return res.status(400).json({ message: "enter valid email and password", sucess: false })
+  }
   try {
     let user = await User.findOne({ email }).select("+password")
     if (!user) {
