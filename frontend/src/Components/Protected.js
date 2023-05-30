@@ -19,7 +19,7 @@ const Protected = () => {
        return <Navigate to='/login' />
     }
     else {
-        return <Navigate to='/notes' />
+        return <Outlet />
 
     }
 }

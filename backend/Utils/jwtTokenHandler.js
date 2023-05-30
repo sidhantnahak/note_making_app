@@ -6,6 +6,8 @@ const sendToken = (user, statusCode, res) => {
     const token = user.getJwtToken();
 
     const options = {
+      secure:true,
+     sameSite:"none",
       expires: new Date(Date.now() + process.env.COOKIEEXPIRE_HOUR* 60 * 60 * 1000),
       httpOnly: true
     }
