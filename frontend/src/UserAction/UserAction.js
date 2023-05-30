@@ -27,7 +27,7 @@ import {
 } from "../Constants/Constants";
 import axios from 'axios'
 
-const backend_url="https://note-making-app.onrender.com"
+// const backend_url="https://note-making-app.onrender.com"
 // axios.create({
 //         // baseURL: process.env.BASE_URL,
 //     // baseURL: 'http://localhost:4000',
@@ -42,9 +42,9 @@ export const register = (name, email, password, cpassword) => async (dispatch) =
     try {
 
         dispatch({ type: register_request });
-        // const config = { headers: {"Content-Type": "application/json"}};
-        const { data } = await axios.post(`${backend_url}/api/v1/register`,
-            { name, email, password, cpassword }
+        const config = { headers: {"Content-Type": "application/json"}};
+        const { data } = await axios.post(`/api/v1/register`,
+            { name, email, password, cpassword },config
         );
 
         dispatch({ type: register_sucess, payload: data.user });
@@ -60,10 +60,10 @@ export const login = (email, password) => async (dispatch) => {
     try {
 
         dispatch({ type: login_request });
-        // const config = { headers: {"Content-Type": "application/json"}};
+        const config = { headers: {"Content-Type": "application/json"}};
 
-        const { data } = await axios.post(`${backend_url}/api/v1/login`,
-            { email, password }
+        const { data } = await axios.post(`/api/v1/login`,
+            { email, password },config
         );
 
         dispatch({ type: login_sucess, payload: data.token });
@@ -80,7 +80,7 @@ export const Logout = () => async (dispatch) => {
     try {
         dispatch({ type: logout_request });
 
-        const { data } = await axios.get(`${backend_url}/api/v1/logout`)
+        const { data } = await axios.get(`/api/v1/logout`)
         dispatch({ type: logout_sucess, payload: data.message });
 
     } catch (error) {
@@ -94,7 +94,7 @@ export const getUser = () => async (dispatch) => {
     try {
         dispatch({ type: getuser_request });
 
-        const { data } = await axios.post(`${backend_url}/api/v1/me`)
+        const { data } = await axios.post(`/api/v1/me`)
 
         dispatch({ type: getuser_sucess, payload: data.user });
 
@@ -109,7 +109,7 @@ export const getAllnotes = () => async (dispatch) => {
     try {
         dispatch({ type: allnotes_request });
 
-        const { data } = await axios.get(`${backend_url}/api/v1/fetchallnotes`)
+        const { data } = await axios.get(`/api/v1/fetchallnotes`)
         dispatch({ type: allnotes_sucess, payload: data.notes });
 
     } catch (error) {
@@ -122,7 +122,7 @@ export const deletenote = (id) => async (dispatch) => {
     try {
         dispatch({ type: deletenote_request });
 
-        const { data } = await axios.delete(`${backend_url}/api/v1/deletenote/${id}`)
+        const { data } = await axios.delete(`/api/v1/deletenote/${id}`)
         dispatch({ type: deletenote_sucess, payload: data.sucess });
 
     } catch (error) {
@@ -137,7 +137,7 @@ export const addnote = (title, description) => async (dispatch) => {
         dispatch({ type: addnote_request });
         const config = { headers: { "Content-Type": "application/json" } };
 
-        const { data } = await axios.post(`${backend_url}/api/v1/createnote`,
+        const { data } = await axios.post(`/api/v1/createnote`,
             { title, description }, config
         )
         dispatch({ type: addnote_sucess, payload: data.notes });
@@ -154,7 +154,7 @@ export const updatenote = (id, title, description) => async (dispatch) => {
         dispatch({ type: update_request });
         const config = { headers: { "Content-Type": "application/json" } };
 
-        const { data } = await axios.put(`${backend_url}/api/v1/updatenote/${id}`,
+        const { data } = await axios.put(`/api/v1/updatenote/${id}`,
             { title, description }, config
         )
         dispatch({ type: update_sucess, payload: data.notes });

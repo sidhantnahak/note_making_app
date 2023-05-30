@@ -8,10 +8,10 @@ const sendToken = (user, statusCode, res) => {
     const options = {
       secure:true,
      sameSite:"none",
-      expires: new Date(Date.now() + process.env.COOKIEEXPIRE_HOUR* 60 * 60 * 1000),
+      MaxAge:3600000*5,
       httpOnly: true
     }
-    return res.status(statusCode).cookie("token", token, options).json({ sucess: true, user, token })
+     res.status(statusCode).cookie("token", token, options).json({ sucess: true, user, token })
   } catch (error) {
 
     return res.status(401).json({ sucess: false, message: error })
