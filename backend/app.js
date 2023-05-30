@@ -14,8 +14,7 @@ app.use(bodyparser.urlencoded({extended:true}))
 // app.use("uploads",express.static("./uploads"))
 // app.use("/files",express.static,("./public/files"))
 
-
-
+app.set("trust proxy", 1);
 app.use('/api/v1',user)
 app.use('/api/v1',notes)
 
