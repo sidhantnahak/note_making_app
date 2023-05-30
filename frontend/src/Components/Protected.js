@@ -9,14 +9,11 @@ const Protected = () => {
     useEffect(() => {
 
     }, [isAuthenticated, sucess])
+    if (sucess === false && isAuthenticated === false) {
+        return <Navigate to='/login' />
+    } else if(!sucess && !isAuthenticated){
+        return <Navigate to='/login' />
 
-    if (isAuthenticated) {
-        return <Outlet />;
-
-
-    }
-    else if (sucess === false && isAuthenticated===false) {
-       return <Navigate to='/login' />
     }
     else {
         return <Outlet />

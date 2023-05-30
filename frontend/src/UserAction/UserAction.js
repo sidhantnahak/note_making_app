@@ -65,7 +65,6 @@ export const login = (email, password) => async (dispatch) => {
         const { data } = await axios.post(`${backend_url}/api/v1/login`,
             { email, password },config
         );
-        console.log(data);
 
         dispatch({ type: login_sucess, payload: data.token });
 
