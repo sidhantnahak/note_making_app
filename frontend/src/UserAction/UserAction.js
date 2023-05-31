@@ -44,7 +44,7 @@ export const register = (name, email, password, cpassword) => async (dispatch) =
         dispatch({ type: register_request });
         // const config = { headers: {"Content-Type": "application/json"}};
         const { data } = await axios.post(`${backend_url}/api/v1/register`,
-            { name, email, password, cpassword },{withCredentials:true}
+            { name, email, password, cpassword }
         );
 
         dispatch({ type: register_sucess, payload: data.user });
@@ -63,7 +63,7 @@ export const login = (email, password) => async (dispatch) => {
         // const config = { headers: {"Content-Type": "application/json"}};
 
         const { data } = await axios.post(`${backend_url}/api/v1/login`,
-            { email, password },{withCredentials:true}
+            { email, password }
         );
 
         dispatch({ type: login_sucess, payload: data.token });
@@ -94,8 +94,8 @@ export const getUser = () => async (dispatch) => {
     try {
         dispatch({ type: getuser_request });
 
-        const { data } = await axios.post(`${backend_url}/api/v1/me`,
-        null,{withCredentials:true}
+        const { data } = await axios.post(`${backend_url}/api/v1/me`
+        
         )
 
         dispatch({ type: getuser_sucess, payload: data.user });
@@ -140,7 +140,7 @@ export const addnote = (title, description) => async (dispatch) => {
         // const config = { headers: { "Content-Type": "application/json" } };
 
         const { data } = await axios.post(`${backend_url}/api/v1/createnote`,
-            { title, description }, {withCredentials:true}
+            { title, description }
         )
         dispatch({ type: addnote_sucess, payload: data.notes });
 
@@ -157,7 +157,7 @@ export const updatenote = (id, title, description) => async (dispatch) => {
         // const config = { headers: { "Content-Type": "application/json" } };
 
         const { data } = await axios.put(`${backend_url}/api/v1/updatenote/${id}`,
-            { title, description }, {withCredentials:true}
+            { title, description }
         )
         dispatch({ type: update_sucess, payload: data.notes });
 
