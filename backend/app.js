@@ -19,7 +19,7 @@ app.use(
         origin: [
             ' https://note-making-app.onrender.com',
             'http://localhost:3000',
-            'https://cerulean-piroshki-7da264.netlify.app'
+            'https://rainbow-froyo-081e09.netlify.app/'
         ],
         credentials: true,
         methods: ['GET', 'PUT', 'POST', 'DELETE', 'OPTIONS'],
@@ -34,7 +34,7 @@ app.use(
 var allowlist = [
     'https://note-making-app.onrender.com',
     'http://localhost:3000',
-    'https://cerulean-piroshki-7da264.netlify.app'
+    'https://rainbow-froyo-081e09.netlify.app/'
 ]
 var corsOptionsDelegate = function (req, callback) {
     var corsOptions
