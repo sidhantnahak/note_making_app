@@ -18,7 +18,7 @@ app.use(
     cors({
         origin: [
             ' https://note-making-app.onrender.com',
-            'http://localhost:3000',
+            // 'http://localhost:3000',
             'https://ephemeral-sfogliatella-6e7758.netlify.app'
         ],
         credentials: true,
@@ -33,7 +33,7 @@ app.use(
 
 var allowlist = [
     'https://note-making-app.onrender.com',
-    'http://localhost:3000',
+    // 'http://localhost:3000',
     'https://ephemeral-sfogliatella-6e7758.netlify.app'
 ]
 var corsOptionsDelegate = function (req, callback) {
