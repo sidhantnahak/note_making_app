@@ -140,7 +140,7 @@ export const addnote = (title, description) => async (dispatch) => {
         const config = { headers: { "Content-Type": "application/json" } };
 
         const { data } = await axios.post(`${backend_url}/api/v1/createnote`,
-            { title, description }
+            { title, description },config
         )
         dispatch({ type: addnote_sucess, payload: data.notes });
 
