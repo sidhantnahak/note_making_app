@@ -41,23 +41,23 @@ app.use(
 
 
 
-var allowlist = [
-    'https://note-making-app.onrender.com',
-    'http://localhost:3000',
-    'https://rainbow-froyo-081e09.netlify.app/'
-]
-var corsOptionsDelegate = function (req, callback) {
-    var corsOptions
-    if (allowlist.indexOf(req.header('Origin')) !== -1) {
-        corsOptions = { origin: true } // reflect (enable) the requested origin in the CORS response
-    } else {
-        corsOptions = { origin: false } // disable CORS for this request
-    }
-    callback(null, corsOptions) // callback expects two parameters: error and options
-}
+// var allowlist = [
+//     'https://note-making-app.onrender.com',
+//     'http://localhost:3000',
+//     'https://rainbow-froyo-081e09.netlify.app/'
+// ]
+// var corsOptionsDelegate = function (req, callback) {
+//     var corsOptions
+//     if (allowlist.indexOf(req.header('Origin')) !== -1) {
+//         corsOptions = { origin: true } // reflect (enable) the requested origin in the CORS response
+//     } else {
+//         corsOptions = { origin: false } // disable CORS for this request
+//     }
+//     callback(null, corsOptions) // callback expects two parameters: error and options
+// }
 
-app.use('/api/v1', cors(corsOptionsDelegate), user)
-app.use('/api/v1', cors(corsOptionsDelegate), notes)
+app.use('/api/v1',  user)
+app.use('/api/v1', notes)
 
 app.set("trust proxy", 1);
 
