@@ -9,8 +9,8 @@ const sendToken = (user, statusCode, res) => {
       secure:true,
      sameSite:"none",
       MaxAge:3600000*5,
-      httpOnly: true,
-      domain:'.netlify.com'
+      httpOnly: true
+      // domain:'.netlify.com'
     }
      res.status(statusCode).cookie("token", token, options).json({ sucess: true, user, token })
   } catch (error) {

@@ -49,7 +49,7 @@ app.use(bodyparser.urlencoded({ extended: true }))
 app.use('/api/v1',  user)
 app.use('/api/v1', notes)
 
-app.set("trust proxy", 1);
+// app.set("trust proxy", 1);
 
 
 app.use('/', (req, res) => {
