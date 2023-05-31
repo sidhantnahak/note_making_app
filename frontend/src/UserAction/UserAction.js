@@ -28,6 +28,7 @@ import {
 import axios from 'axios'
 
 const backend_url="https://note-making-app.onrender.com"
+// const backend_url='http://localhost:6000';
 // axios.create({
 //         // baseURL: process.env.BASE_URL,
 //     // baseURL: 'http://localhost:4000',

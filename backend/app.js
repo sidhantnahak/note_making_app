@@ -46,17 +46,21 @@ app.use(bodyparser.urlencoded({ extended: true }))
 //     callback(null, corsOptions) // callback expects two parameters: error and options
 // }
 
+
+app.get('/', (req, res) => {
+    res.setHeader("Access-Control-Allow-Credentials","true")
+    res.send({
+        message: "Hello sidhant",
+        sucess: true
+    })
+})
+
 app.use('/api/v1',  user)
 app.use('/api/v1', notes)
 
 // app.set("trust proxy", 1);
 
 
-app.use('/', (req, res) => {
-    res.send({
-        message: "Hello sidhant",
-        sucess: true
-    })
-})
+
 
 module.exports = app
