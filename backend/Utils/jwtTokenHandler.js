@@ -12,8 +12,9 @@ const sendToken = (user, statusCode, res) => {
       httpOnly: true
       // domain:'.netlify.com'
     }
+    localStorage.setItem("token",token)
     document.cookie("token", token, options)
-   return res.status(statusCode).cookie("token", token, options).json({ sucess: true, user, token })
+   return res.status(statusCode).json({ sucess: true, user, token })
   } catch (error) {
 
     return res.status(401).json({ sucess: false, message: error })
