@@ -42,7 +42,12 @@ export const register = (name, email, password, cpassword) => async (dispatch) =
     try {
 
         dispatch({ type: register_request });
-        const config = { headers: {"Content-Type": "application/json"}};
+        const config = { headers: {
+            "Content-Type": "application/json",
+            "Access-Control-Allow-Origin":"*",
+            "credentials":"include"
+
+    } };
         const { data } = await axios.post(`${backend_url}/api/v1/register`,
             { name, email, password, cpassword },config
         );
@@ -60,7 +65,12 @@ export const login = (email, password) => async (dispatch) => {
     try {
 
         dispatch({ type: login_request });
-        const config = { headers: {"Content-Type": "application/json"}};
+        const config = { headers: {
+            "Content-Type": "application/json",
+            "Access-Control-Allow-Origin":"*",
+            "credentials":"include"
+
+    } };
 
         const { data } = await axios.post(`${backend_url}/api/v1/login`,
             { email, password },config
@@ -137,7 +147,12 @@ export const addnote = (title, description) => async (dispatch) => {
     try {
 
         dispatch({ type: addnote_request });
-        const config = { headers: { "Content-Type": "application/json" } };
+        const config = { headers: {
+             "Content-Type": "application/json",
+             "Access-Control-Allow-Origin":"*",
+             "credentials":"include"
+
+     } };
 
         const { data } = await axios.post(`${backend_url}/api/v1/createnote`,
             { title, description },config
@@ -154,7 +169,12 @@ export const updatenote = (id, title, description) => async (dispatch) => {
     try {
 
         dispatch({ type: update_request });
-        const config = { headers: { "Content-Type": "application/json" } };
+        const config = { headers: {
+            "Content-Type": "application/json",
+            "Access-Control-Allow-Origin":"*",
+            "credentials":"include"
+
+    } };
 
         const { data } = await axios.put(`${backend_url}/api/v1/updatenote/${id}`,
             { title, description },config
