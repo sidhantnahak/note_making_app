@@ -7,37 +7,37 @@ const cookieparser = require('cookie-parser')
 const bodyparser = require('body-parser')
 
 app.use(express.json())
-// app.use(cors())
+app.use(cors())
 app.use(cookieparser())
 app.use(bodyparser.urlencoded({ extended: true }))
 
 // app.use("uploads",express.static("./uploads"))
 // app.use("/files",express.static,("./public/files"))
 
-app.use(
-    cors({
-        origin: [
-            ' https://note-making-app.onrender.com',
-            'http://localhost:3000',
-            'https://rainbow-froyo-081e09.netlify.app/'
-        ],
-        credentials: true,
-        methods: ['GET', 'PUT', 'POST', 'DELETE', 'OPTIONS'],
-        allowedHeaders: [
-            'Access-Control-Allow-Origin',
-            'Content-Type',
-            'Authorization',
-        ],
-    })
-)
+// app.use(
+//     cors({
+//         origin: [
+//             ' https://note-making-app.onrender.com',
+//             'https://localhost:3000',
+//             'https://rainbow-froyo-081e09.netlify.app/'
+//         ],
+//         credentials: true,
+//         methods: ['GET', 'PUT', 'POST', 'DELETE', 'OPTIONS'],
+//         allowedHeaders: [
+//             'Access-Control-Allow-Origin',
+//             'Content-Type',
+//             'Authorization',
+//         ],
+//     })
+// )
 
-// app.use((req, res, next) => {
-//     res.setHeader("Access-Control-Allow-Origin", process.env.DOMAIN_URL);
-//     res.setHeader("Access-Control-Allow-Credentials", true);
-//     res.setHeader("Access-Control-Allow-Headers", "Content-Type");
-//     res.header("Access-Control-Allow-Methods", "GET, PUT, POST, DELETE");
-//     next();
-//   });
+app.use((req, res, next) => {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Credentials", true);
+    res.header("Access-Control-Allow-Headers", "Origin,X-Requested-With, Content-Type,Accept,x-client-key,x-client-token,x-client-secret,Authorization");
+    res.header("Access-Control-Allow-Methods", "GET, PUT, POST, DELETE");
+    next();
+  });
 
 
 
