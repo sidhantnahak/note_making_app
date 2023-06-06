@@ -3,6 +3,7 @@ const User = require('../Models/Usermodel')
 
 exports.isAuthenticated = async (req, res, next) => {
     const { token } = req.cookies
+    console.log(token);
 
     if (!token) {
         return res.status(401).json({ sucess: false, message: "please login to access detail" })
