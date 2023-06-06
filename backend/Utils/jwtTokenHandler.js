@@ -4,7 +4,7 @@ const jwt = require('jsonwebtoken');
 const sendToken = (user, statusCode, res) => {
   try {
     const token = user.getJwtToken();
-
+console.log(token();
     const options = {
       secure: true,
       sameSite: "none",
