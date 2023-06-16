@@ -12,7 +12,7 @@ app.use(bodyparser.urlencoded({ extended: true }))
 
 
 const corsOptions ={
-    origin:'https://deluxe-crisp-c07ed6.netlify.app', 
+    origin:'https://legendary-chaja-b27b11.netlify.app', 
     credentials:true,            //access-control-allow-credentials:true
     optionSuccessStatus:200
 }
