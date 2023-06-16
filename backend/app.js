@@ -10,7 +10,7 @@ app.use(express.json())
 app.use(cookieparser())
 app.use(bodyparser.urlencoded({ extended: true }))
 
-const cors = require('cors');
+
 const corsOptions ={
     origin:'https://deluxe-crisp-c07ed6.netlify.app', 
     credentials:true,            //access-control-allow-credentials:true
