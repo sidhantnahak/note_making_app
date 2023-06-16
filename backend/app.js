@@ -6,77 +6,58 @@ const cors = require('cors')
 const cookieparser = require('cookie-parser')
 const bodyparser = require('body-parser')
 
-app.use(express.json())
+
+app.use(
+    cors({
+      origin: [
+        'https://note-making-app.onrender.com',
+        'http://localhost:3000',
+        'https://aquamarine-starburst-57b9f1.netlify.app',
+      ],
+      credentials: true,
+      methods: ['GET', 'PUT', 'POST', 'DELETE', 'OPTIONS'],
+      allowedHeaders: [
+        'Access-Control-Allow-Origin',
+        'Content-Type',
+        'Authorization',
+      ],
+    })
+  )
+  
+  var allowlist = [
+    'https://note-making-app.onrender.com',
+    'https://aquamarine-starburst-57b9f1.netlify.app'
+
+  ]
+  var corsOptionsDelegate = function (req, callback) {
+    var corsOptions
+    if (allowlist.indexOf(req.header('Origin')) !== -1) {
+      corsOptions = { origin: true } // reflect (enable) the requested origin in the CORS response
+    } else {
+      corsOptions = { origin: false } // disable CORS for this request
+    }
+    callback(null, corsOptions) // callback expects two parameters: error and options
+  }
+
+
+  app.use(express.json())
 app.use(cookieparser())
 app.use(bodyparser.urlencoded({ extended: true }))
 
 
-const corsOptions ={
-    origin:'https://clinquant-rabanadas-88e243.netlify.app', 
-    credentials:true,            //access-control-allow-credentials:true
-    optionSuccessStatus:200
-}
-app.use(cors(corsOptions));
-
-// app.use("uploads",express.static("./uploads"))
-// app.use("/files",express.static,("./public/files"))
-
-// app.use(
-//     cors({
-//         origin: [
-//             ' https://note-making-app.onrender.com',
-//             // 'http://localhost:3000',
-//             'https://ephemeral-sfogliatella-6e7758.netlify.app'
-//         ],
-//         credentials: true,
-//         methods: ['GET', 'PUT', 'POST', 'DELETE', 'OPTIONS'],
-//         allowedHeaders: [
-//             'Access-Control-Allow-Origin',
-//             'Content-Type',
-//             'Authorization',
-//         ],
-//     })
-// )
-
-// var allowlist = [
-//     'https://note-making-app.onrender.com',
-//     // 'http://localhost:3000',
-//     'https://ephemeral-sfogliatella-6e7758.netlify.app'
-// ]
-// var corsOptionsDelegate = function (req, callback) {
-//     var corsOptions
-//     if (allowlist.indexOf(req.header('Origin')) !== -1) {
-//         corsOptions = { origin: true } // reflect (enable) the requested origin in the CORS response
-//     } else {
-//         corsOptions = { origin: false } // disable CORS for this request
-//     }
-//     callback(null, corsOptions) // callback expects two parameters: error and options
-// }
-const router=express.Router();
+app.use('/api/v1',corsOptionsDelegate,  user)
+app.use('/api/v1',corsOptionsDelegate, notes)
 
 
-router.get("/", (req, res) => {
-    res.setHeader("Access-Control-Allow-Origin", "*")
-    res.setHeader("Access-Control-Allow-Credentials", "true");
-    res.setHeader("Access-Control-Max-Age", "1800");
-    res.setHeader("Access-Control-Allow-Headers", "content-type");
-    res.setHeader( "Access-Control-Allow-Methods", "PUT, POST, GET, DELETE, PATCH, OPTIONS" ); 
-     });
-
-app.get('/', (req, res) => {
-    res.setHeader("Access-Control-Allow-Credentials","true")
-    res.send({
-        message: "Hello sidhant",
-        sucess: true
+app.use((err, req, res, next) => {
+    const status = err.status || 500
+    const message = err.message || 'Something went wrong'
+    return res.status(status).json({
+      success: false,
+      status: status,
+      message,
     })
-})
-
-app.use('/api/v1',  user)
-app.use('/api/v1', notes)
-
-// app.set("trust proxy", 1);
-
-
+  })
 
 
 module.exports = app
