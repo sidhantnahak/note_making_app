@@ -12,7 +12,7 @@ app.use(
       origin: [
         'https://note-making-app.onrender.com',
         'http://localhost:3000',
-        'https://coruscating-sunflower-74a999.netlify.app',
+        'https://frabjous-truffle-0ba88f.netlify.app',
       ],
       credentials: true,
       methods: ['GET', 'PUT', 'POST', 'DELETE', 'OPTIONS'],
@@ -26,7 +26,7 @@ app.use(
   
   var allowlist = [
     'https://note-making-app.onrender.com',
-    'https://coruscating-sunflower-74a999.netlify.app'
+    'https://frabjous-truffle-0ba88f.netlify.app'
 
   ]
   var corsOptionsDelegate = function (req, callback) {
