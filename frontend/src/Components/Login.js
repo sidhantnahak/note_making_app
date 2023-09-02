@@ -22,8 +22,6 @@ const Login = () => {
         setData({ ...data, [e.target.name]: e.target.value })
     }
 
-
-
     const OnSubmit = (e) => {
         e.preventDefault()
         dispatch(login(email, password))

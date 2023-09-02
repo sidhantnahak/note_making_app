@@ -1,6 +1,7 @@
 const connectDatabasae = require('./db');
 const app = require('./app')
-const PORT=process.env.PORT||6000
+// const PORT=process.env.PORT||6000
+const PORT=4000
 
 
 //unhandled uncatch exception

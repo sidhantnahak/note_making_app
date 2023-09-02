@@ -12,6 +12,7 @@ import Note from './Components/Notes';
 import Protected from './Components/Protected';
 import Contact from './Components/Contact';
 import Profile from './Components/Profile';
+import Notfound from './Components/Notfound';
 
 
 function App() {
@@ -47,12 +48,13 @@ function App() {
             <Route exact path='/notes' element={<Note />} />
             <Route exact path='/notes/update/:id' element={<Note />} />
             <Route exact path="/contact" element={<Contact />} />
-            <Route exact path="/feedback" />
+            <Route exact path="/feedback" element={<Notfound/>} />
 
 
           </Route>
+          <Route exact path="*" element={<Notfound/>} />
 
-
+         
         </Routes>
       </BrowserRouter>
     </div>
