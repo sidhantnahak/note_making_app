@@ -7,7 +7,24 @@ const cookieparser = require('cookie-parser')
 const bodyparser = require('body-parser')
 
 
-app.use(cors())
+app.use(
+  cors({
+    origin: [
+      'https://note-making-app.onrender.com',
+      'http://localhost:3000',
+      'https://boisterous-selkie-74f2bd.netlify.app'
+    ],
+    credentials: true,
+    methods: ['GET', 'PUT', 'POST', 'DELETE', 'OPTIONS'],
+    allowedHeaders: [
+      'Access-Control-Allow-Origin',
+      'Content-Type',
+      'Authorization',
+    ],
+  })
+)
+
+
 
 
 app.use(express.json())
