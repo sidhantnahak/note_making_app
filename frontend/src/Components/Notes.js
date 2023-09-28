@@ -39,7 +39,7 @@ const Notesapp = () => {
     if(sucess){
       dispatch(getAllnotes())
     }
-  }, [loading, isAuthenticated,sucess, error,dispatch])
+  }, [isAuthenticated,sucess, error,dispatch])
 
 
   return (

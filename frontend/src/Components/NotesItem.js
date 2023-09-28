@@ -59,7 +59,7 @@ const NotesItem = (props) => {
       dispatch(getAllnotes())
     }
 
-  }, [loading, sucess, dispatch, navigate, error])
+  }, [sucess, dispatch, navigate, error])
 
 
 

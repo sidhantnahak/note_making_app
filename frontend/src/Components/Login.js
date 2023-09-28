@@ -36,7 +36,7 @@ const Login = () => {
         if(error){
             alert(error)
         }
-    }, [dispatch, navigate, isAuthenticated, loading, error, user])
+    }, [dispatch, navigate, isAuthenticated, error, user])
     return (
         <>
             {loading ? <Loder /> :
