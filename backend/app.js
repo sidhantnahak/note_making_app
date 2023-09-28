@@ -12,7 +12,8 @@ app.use(
     origin: [
       'https://note-making-app.onrender.com',
       'http://localhost:3000',
-      'https://boisterous-selkie-74f2bd.netlify.app'
+      'https://boisterous-selkie-74f2bd.netlify.app',
+      "https://myapp-frontend-hhxo.onrender.com/"
     ],
     credentials: true,
     methods: ['GET', 'PUT', 'POST', 'DELETE', 'OPTIONS'],
