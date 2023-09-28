@@ -15,8 +15,8 @@ app.use(cookieparser())
 app.use(bodyparser.urlencoded({ extended: true }))
 
 
-app.use('/api/v1', cors(corsOptionsDelegate), user)
-app.use('/api/v1', cors(corsOptionsDelegate), notes)
+app.use('/api/v1', user)
+app.use('/api/v1', notes)
 
 
 app.use((err, req, res, next) => {
