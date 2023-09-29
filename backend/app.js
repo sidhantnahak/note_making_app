@@ -8,14 +8,11 @@ const bodyparser = require('body-parser')
 
 
 
-// const corsOptions={
-//   origin:
-//   [
-//     "https://myapp-frontend-hhxo.onrender.com/",
-//     "http://localhost:3000/"
-//   ]
+const corsOptions={
+  origin: "http://localhost:3000"
+}
 
-// }
+app.use(cors(corsOptions))
 // app.use(
 //   cors({
 //     origin: [
@@ -43,12 +40,12 @@ app.use(bodyparser.urlencoded({ extended: true }))
 app.use('/api/v1', user)
 app.use('/api/v1', notes)
 
-const corsOptions ={
-  origin:'http://localhost:3000', 
-  credentials:true,            //access-control-allow-credentials:true
-  optionSuccessStatus:200
-}
-app.use(cors(corsOptions));
+// const corsOptions ={
+//   origin:'http://localhost:3000', 
+//   credentials:true,            //access-control-allow-credentials:true
+//   optionSuccessStatus:200
+// }
+// app.use(cors(corsOptions));
 
 
 
