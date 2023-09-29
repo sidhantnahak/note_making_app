@@ -9,7 +9,11 @@ const bodyparser = require('body-parser')
 
 
 const corsOptions = {
-  origin: "http://localhost:3000",
+  origin: 
+  [
+    "http://localhost:3000",
+    "https://frontendapp-ig2u.onrender.com"
+  ],
   credentials: true,
   methods: ['GET', 'PUT', 'POST', 'DELETE', 'OPTIONS'],
   allowedHeaders: [
