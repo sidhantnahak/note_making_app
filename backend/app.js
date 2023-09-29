@@ -7,23 +7,25 @@ const cookieparser = require('cookie-parser')
 const bodyparser = require('body-parser')
 
 
-app.use(
-  cors({
-    origin: [
-      'https://note-making-app.onrender.com',
-      'http://localhost:3000',
-      'https://boisterous-selkie-74f2bd.netlify.app',
-      "https://myapp-frontend-hhxo.onrender.com/"
-    ],
-    credentials: true,
-    methods: ['GET', 'PUT', 'POST', 'DELETE', 'OPTIONS'],
-    allowedHeaders: [
-      'Access-Control-Allow-Origin',
-      'Content-Type',
-      'Authorization',
-    ],
-  })
-)
+
+const corsOptions={
+  origin: "https://myapp-frontend-hhxo.onrender.com/"
+}
+// app.use(
+//   cors({
+//     origin: [
+
+     
+//     ],
+//     credentials: true,
+//     methods: ['GET', 'PUT', 'POST', 'DELETE', 'OPTIONS'],
+//     allowedHeaders: [
+//       'Access-Control-Allow-Origin',
+//       'Content-Type',
+//       'Authorization',
+//     ],
+//   })
+// )
 
 
 
@@ -31,6 +33,7 @@ app.use(
 app.use(express.json())
 app.use(cookieparser())
 app.use(bodyparser.urlencoded({ extended: true }))
+app.use(cors(corsOptions));
 
 
 app.use('/api/v1', user)
