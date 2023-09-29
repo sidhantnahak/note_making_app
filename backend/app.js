@@ -9,7 +9,12 @@ const bodyparser = require('body-parser')
 
 
 const corsOptions={
-  origin: "https://myapp-frontend-hhxo.onrender.com/"
+  origin:
+  [
+    "https://myapp-frontend-hhxo.onrender.com/",
+    "http://localhost:3000/"
+  ]
+   
 }
 // app.use(
 //   cors({
@@ -33,11 +38,11 @@ const corsOptions={
 app.use(express.json())
 app.use(cookieparser())
 app.use(bodyparser.urlencoded({ extended: true }))
-app.use(cors(corsOptions));
 
 
 app.use('/api/v1', user)
 app.use('/api/v1', notes)
+app.use(cors(corsOptions));
 
 
 app.use((err, req, res, next) => {
